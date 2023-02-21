@@ -1,0 +1,33 @@
+* {
+    text-decoration: none;
+    /* text-align: center; */
+} 
+
+
+#button {
+    width: 22%;
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+#first-question {
+    display: none;
+}
+
+li {
+    width: 20%;
+    border-style: solid;
+    text-align: center;
+    margin-top: 2px;
+    padding: 3px 0;
+    text-decoration: none;
+}
+
+li:hover {
+    background-color: lightblue;
+}
+
+li:active {
+    background-color: pink;
+} 

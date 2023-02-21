@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Code Quiz!</title>
+    <link rel="stylesheet" href="./Assets/style.css">
+</head>
+<body>
+    <h1 id="timer" style="display: none">60</h1>
+
+    <div id="button">
+        <h1>Click to begin game!</h1>
+    </div>
+
+    <div id="first-question">
+        <h3>What is an example of a method?<s/h3>
+        <ol>
+            <li class="correct-answer">array.splice()</li>
+            <li class="wrong-answer">array function() {}</li>
+            <li class="wrong-answer">for (i = 0; i < 10; i++</li>
+            <li class="wrong-answer">array = ['1', '2', '3']</li>
+        </ol>
+    </div>
+
+    <h3 id="correct" style="display: none;">Correct!</h3>
+    <h3 id="incorrect" style="display: none;">Incorrect!</h3>
+    
+    <div id="name-form" style="display: none;">
+        <h1>Add your name!</h1>
+        <textarea id="player-name"></textarea>
+        <button id="submit" style="display: block;">Submit name!</button>
+    </div>
+
+    <div id="score-board" style="display: none;">
+        <h1>High Scores:</h1>
+        <p>Player: <span id="saved-name"></span> Score: <span id="saved-score"></span></p>
+        <button id="clear-score" style="display: block;">Clear score</button>
+    </div>
+
+
+
+
+
+
+    <script src="./Assets/script.js"></script>
+</body>
+</html>
