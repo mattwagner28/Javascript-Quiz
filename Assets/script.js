@@ -12,7 +12,8 @@ var savedScore = document.getElementById('saved-score');
 var nameForm = document.getElementById('name-form');
 var scoreBoard = document.getElementById('score-board');
 var clearButton = document.getElementById('clear-score');
-
+var playAgainButton = document.getElementById('play-again');
+var endButtons = document.getElementById('end-buttons');
 
 // Creates countdown timer of 60 seconds
 function countdown() {
@@ -30,7 +31,9 @@ function countdown() {
     correct.setAttribute("style", "display: block;");
     clearInterval(timeInterval);
     score = timeLeft;
-    nameForm.setAttribute("style", "display: block;")
+    nameForm.setAttribute("style", "display: block;");
+    // endButtons.setAttribute("style", "display: inline;");
+    
     
     })
 
@@ -43,27 +46,36 @@ function countdown() {
 
 
 }
-
 function addScores (event) {
   event.preventDefault();
-  var scores = [];
+ 
+  var getScores = JSON.parse(localStorage.getItem("player and score")) || [];
+  
   var highScore = {
     player: inputName.value,
     score: timeLeft
   } 
-  scores.push(highScore);
-  localStorage.setItem("player and score", JSON.stringify(scores));
+  getScores.push(highScore);
+  localStorage.setItem("player and score", JSON.stringify(getScores));
 
-  console.log(scores);
+  // console.log(localStorage);
   
   scoreBoard.setAttribute("style", "display: block;" )
-  var scores = JSON.parse(localStorage.getItem("player and score"));
-  if (scores !== null) {
-      document.getElementById("saved-name").innerHTML = highScore.player;
-      document.getElementById("saved-score").innerHTML = highScore.score;
+  nameForm.setAttribute("style", "display: none;")
+
+    if (getScores !== null) {
+
+    for (i = 0; i < getScores.length + 1; i++) {
+      scoreDisplay = document.createElement("p");
+      scoreDisplay.textContent = "Name: " + getScores[i].player + " Score: " + getScores[i].score;
+      document.getElementById("score-board").appendChild(scoreDisplay);
+
+      console.log(getScores[i].player, getScores[i].score);
+    }
     } else {
       return;
     }
+
 
 }
 
@@ -75,13 +87,24 @@ startButton.setAttribute("style", "display: none;");
 firstQuestion.setAttribute("style", "display: block;");
 });
 
-//Submit 
-submitButton.addEventListener("click", addScores);
+// // // Submit 
+submitButton.addEventListener("click", function () {
+  endButtons.setAttribute("style", "display: inline;");
+  addScores(event);
+})
+
+
 
 //Clears score
 clearButton.addEventListener("click", function () {
-  // localStorage.clear();
+  localStorage.clear();
   location.reload();
   document.getElementById("saved-name").innerHTML = "";
   document.getElementById("saved-score").innerHTML = "";
 });
+
+//Allows user to play again
+playAgainButton.addEventListener("click", function () {
+location.reload();
+
+})
