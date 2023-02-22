@@ -8,22 +8,36 @@
     <link rel="stylesheet" href="./Assets/style.css">
 </head>
 <body>
+    <!-- Game timer -->
     <h1 id="timer" style="display: none">60</h1>
 
+    <!--Start button that begins game-->
     <div id="button">
         <h1>Click to begin game!</h1>
     </div>
 
-    <div id="first-question">
+    <!-- Question #1-->
+    <div id="first-question" style="display: none;">
         <h3>What is an example of a method?<s/h3>
         <ol>
-            <li class="correct-answer">array.splice()</li>
+            <li id="first-correct-answer">array.splice()</li>
             <li class="wrong-answer">array function() {}</li>
             <li class="wrong-answer">for (i = 0; i < 10; i++</li>
             <li class="wrong-answer">array = ['1', '2', '3']</li>
         </ol>
     </div>
 
+    <div id="second-question" style="display: none;">
+        <h3>What statement is true?<s/h3>
+        <ol>
+            <li class="wrong-answer">10 && 10</li>
+            <li class="wrong-answer">10 || 10</li>
+            <li class="correct-answer">10 = = = 10</li>
+            <li class="wrong-answer">10 =! </li>
+        </ol>
+    </div>
+
+    <!-- Notifies user if they're correct or incorrect-->
     <h3 id="correct" style="display: none;">Correct!</h3>
     <h3 id="incorrect" style="display: none;">Incorrect!</h3>
     

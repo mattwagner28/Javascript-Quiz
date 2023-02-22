@@ -14,6 +14,8 @@ var scoreBoard = document.getElementById('score-board');
 var clearButton = document.getElementById('clear-score');
 var playAgainButton = document.getElementById('play-again');
 var endButtons = document.getElementById('end-buttons');
+var firstAnswer = document.getElementById('first-correct-answer');
+var secondQuestion = document.getElementById('second-question');
 
 // Creates countdown timer of 60 seconds
 function countdown() {
@@ -33,18 +35,14 @@ function countdown() {
     score = timeLeft;
     nameForm.setAttribute("style", "display: block;");
     // endButtons.setAttribute("style", "display: inline;");
-    
-    
     })
-
-    //After player enters their name and hits the submit button, it add's the player name and score to local storage and displays it.
-    //Score == # of seconds left on clock
-
-
 
   }, 1000);
 
+  
 
+//After player enters their name and hits the submit button, it add's the player name and score to local storage and displays it.
+//Score == # of seconds left on clock
 }
 function addScores (event) {
   event.preventDefault();
@@ -57,8 +55,6 @@ function addScores (event) {
   } 
   getScores.push(highScore);
   localStorage.setItem("player and score", JSON.stringify(getScores));
-
-  // console.log(localStorage);
   
   scoreBoard.setAttribute("style", "display: block;" )
   nameForm.setAttribute("style", "display: none;")
@@ -87,13 +83,17 @@ startButton.setAttribute("style", "display: none;");
 firstQuestion.setAttribute("style", "display: block;");
 });
 
+// Goes to next question after first question is answered corrected
+firstAnswer.addEventListener("click", function () {
+  firstQuestion.setAttribute("style", "display: none;");
+  secondQuestion.setAttribute("style", "display: block;");
+})
+
 // // // Submit 
 submitButton.addEventListener("click", function () {
   endButtons.setAttribute("style", "display: inline;");
   addScores(event);
 })
-
-
 
 //Clears score
 clearButton.addEventListener("click", function () {
